@@ -1,20 +1,22 @@
 NAME		= 	poly
 
 CXX			= 	c++
-CXXFLAGS	= 	-Wall -Wextra -Werror -std=c++98
+CXXFLAGS	= 	-Wall -Wextra -Werror -std=c++98 -g
 
 SRCS		:= 	main.cpp\
 				Animal.cpp\
 				Dog.cpp\
 				Cat.cpp\
 				WrongAnimal.cpp\
-				WrongCat.cpp
+				WrongCat.cpp\
+				Brain.cpp
 
 HEADERS		:=	Animal.hpp\
 				Dog.hpp\
 				Cat.hpp\
 				WrongAnimal.hpp\
-				WrongCat.hpp
+				WrongCat.hpp\
+				Brain.hpp
 
 OBJDIR		:= 	obj
 OBJ 		:= 	$(SRCS:%.cpp=$(OBJDIR)/%.o)

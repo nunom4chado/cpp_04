@@ -6,7 +6,7 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:33:50 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/17 15:36:54 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/17 21:57:05 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,17 @@
 
 class Brain {
   public:
-    Brain();                 // canonical
+    Brain(); // canonical
+    Brain(std::string type);
     Brain(const Brain &src); // canonical
     ~Brain();                // canonical
 
     Brain &operator=(const Brain &rhs); // canonical
 
-    std::string ideas[100];
+    void showIdeas(void) const;
+
+  private:
+    std::string *_ideas[100];
 };
 
 #endif

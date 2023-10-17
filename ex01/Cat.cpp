@@ -6,7 +6,7 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 23:13:19 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/17 15:13:15 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/17 21:58:06 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ using std::endl;
 /* -------------------------------------------------------------------------- */
 Cat::Cat() : Animal() {
     this->_type = "Cat";
+    this->_brain = new Brain("Cat");
     cout << YELLOW << "Cat Default Constructer" << RESET << endl;
 }
 
@@ -31,7 +32,10 @@ Cat::Cat(const Cat &src) : Animal() {
     *this = src;
 }
 
-Cat::~Cat() { cout << YELLOW << "Cat Destructer" << RESET << endl; }
+Cat::~Cat() {
+    delete this->_brain;
+    cout << YELLOW << "Cat Destructer" << RESET << endl;
+}
 
 /* -------------------------------------------------------------------------- */
 /*                             Operator Overloads                             */
@@ -41,6 +45,7 @@ Cat &Cat::operator=(const Cat &rhs) {
 
     if (this != &rhs) {
         this->_type = rhs._type;
+        this->_brain = new Brain(*(rhs._brain));
     }
     return *this;
 }
