@@ -3,10 +3,19 @@ NAME		= 	interface
 CXX			= 	c++
 CXXFLAGS	= 	-Wall -Wextra -Werror -std=c++98 -g
 
-SRCS		:= 	main.cpp\
-				AMateria.cpp
+SRCS		:= 	AMateria.cpp\
+				Character.cpp\
+				Cure.cpp\
+				Ice.cpp\
+				main.cpp\
 
-HEADERS		:=	AMateria.hpp
+HEADERS		:=	AMateria.hpp\
+				Character.hpp\
+				Cure.hpp\
+				Ice.hpp\
+				ICharacter.hpp\
+				IMateriaSource.hpp\
+				MateriaSource.hpp\
 
 OBJDIR		:= 	obj
 OBJ 		:= 	$(SRCS:%.cpp=$(OBJDIR)/%.o)
