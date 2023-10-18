@@ -6,7 +6,7 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 11:10:17 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/18 11:29:17 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/18 11:43:13 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ AMateria::AMateria(string const &type) : _type(type) {
     cout << "AMateria Parameterized Constructer" << endl;
 }
 
-AMateria::AMateria(const AMateria &src) : _type("none") {
+AMateria::AMateria(const AMateria &src) {
     cout << "AMateria Copy Constructer" << endl;
     *this = src;
 }
