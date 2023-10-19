@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: numartin <numartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:38:05 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/17 22:36:53 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/19 14:38:05 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ using std::string;
 /* -------------------------------------------------------------------------- */
 Brain::Brain() {
     for (int i = 0; i < 100; i++) {
-        this->_ideas[i] = new string("Animal idea");
+        this->_ideas[i] = "Animal idea";
     }
     cout << RED << "Brain Default Constructer" << RESET << endl;
 }
 
 Brain::Brain(string type) {
     for (int i = 0; i < 100; i++) {
-        this->_ideas[i] = new string(type + " idea");
+        this->_ideas[i] = type + " idea";
     }
     cout << RED << "Brain Default Constructer" << RESET << endl;
 }
@@ -39,21 +39,10 @@ Brain::Brain(string type) {
 Brain::Brain(const Brain &src) {
     cout << RED << "Brain Copy Constructer" << RESET << endl;
 
-    // In c++98 we can't delegate constructers -_-' . We must initialize the
-    // array to prevent uninitialized values
-    for (int i = 0; i < 100; i++) {
-        this->_ideas[i] = new string("Animal idea");
-    }
-
     *this = src;
 }
 
-Brain::~Brain() {
-    for (int i = 0; i < 100; i++) {
-        delete this->_ideas[i];
-    }
-    cout << RED << "Brain Destructer" << RESET << endl;
-}
+Brain::~Brain() { cout << RED << "Brain Destructer" << RESET << endl; }
 
 /* -------------------------------------------------------------------------- */
 /*                             Operator Overloads                             */
@@ -63,8 +52,7 @@ Brain &Brain::operator=(const Brain &rhs) {
 
     if (this != &rhs) {
         for (int i = 0; i < 100; i++) {
-            delete this->_ideas[i]; // free old string
-            this->_ideas[i] = new string(*rhs._ideas[i]);
+            this->_ideas[i] = rhs._ideas[i];
 
             // Visualize that a new copy of the string is being made
             // cout << "new address: " << this->_ideas[i]
@@ -80,6 +68,6 @@ Brain &Brain::operator=(const Brain &rhs) {
 void Brain::showIdeas(void) const {
     cout << "Show ideas:" << endl;
     for (int i = 0; i < 100; i++) {
-        cout << *this->_ideas[i] << endl;
+        cout << this->_ideas[i] << endl;
     }
 }

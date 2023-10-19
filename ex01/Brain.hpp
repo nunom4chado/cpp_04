@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: numartin <numartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:33:50 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/17 21:57:05 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/19 14:35:56 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Brain {
     void showIdeas(void) const;
 
   private:
-    std::string *_ideas[100];
+    std::string _ideas[100];
 };
 
 #endif
